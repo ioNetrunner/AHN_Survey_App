@@ -1,0 +1,13 @@
+{
+    "name": "vendor/a-h-n-resource-server",
+    "description": "Description of project AHN Resource Server.",
+    "authors": [
+        {
+            "name": "rgustafs",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {
+        "slim/slim": "4.x-dev"
+    }
+}

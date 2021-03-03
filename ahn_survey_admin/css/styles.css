@@ -1,0 +1,288 @@
+/*
+Theme Name: AHN Survey App
+Author: Io Netrunner
+*/
+
+/*
+ * AHN colours taken from AHN.org CSS.
+ * AHN Green: #00A651
+ * AHN Blue:  #00AEEF
+ * Dark Green for selection: #007237
+ */
+
+body {
+  height: 100%;
+  background: #FFF;
+  /*background: linear-gradient(#00A651, #00AEEF);*/
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  background: #FFF;
+  height: 100px;
+  right: 0px;
+  left: 0px;
+  padding: 5px;
+<<<<<<< HEAD:ahn_survey_admin/css/styles.css
+=======
+  z-index: 999;
+>>>>>>> frontend-angular:ahn_survey_client/www/css/styles.css
+}
+
+#userName {
+  font-size: 22px;
+}
+
+/* Lock icon next to username. */
+#lock {
+  height: 20px;
+}
+
+/* Main body wrapper: */
+#container {
+  /* Header is 100px + 5px padding. */
+  margin: auto;
+  margin-top: 110px;
+  margin-bottom: 110px;
+  height: 100%;
+<<<<<<< HEAD:ahn_survey_admin/css/styles.css
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+=======
+>>>>>>> frontend-angular:ahn_survey_client/www/css/styles.css
+}
+
+footer {
+  align-self: center;
+  padding: 10px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  background-color: white;
+  border-top-style: solid;
+  border-width: 1px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+}
+
+h3 {
+  text-align: center;
+  width: 75%;
+  margin: auto;
+}
+
+/* Style buttons: */
+.button {
+  display: inline-block;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  color: #fff;
+  background-color: #00A651;
+  border: none;
+  box-shadow: 0 9px #999;
+  margin: 5px;
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  font-size: 3em;
+}
+
+.button:active {
+  background-color: #007237;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.right {
+  float: right;
+}
+
+.hCenter {
+  margin: auto;
+  /*width: 75%;*/
+  text-align: center;
+}
+
+.vCenter {
+  min-height: 10em;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+input[type=submit] {
+  display: block;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  color: #fff;
+  background-color: #00A651;
+  border: none;
+  box-shadow: 0 9px #999;
+  margin: auto;
+  width: 100%;
+  height: 100px;
+  border-radius: 8px;
+}
+
+.error {
+  padding: 15px;
+  color: red;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+input.ng-invalid.ng-dirty {
+  background-color: pink !important;
+  border-color: pink;
+}
+input.ng-valid-required, input.ng-dirty.ng-valid-pattern {
+  background-color: lightgreen;
+}
+
+/* Animation */
+.repeated-item.ng-hide-add {
+  animation: 0.5s hide_animation;
+}
+
+@keyframes hide_animation {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.repeated-item.ng-hide-remove {
+  opacity: 0;
+  animation: 0.5s show_animation;
+  animation-delay: .5s;
+}
+
+@keyframes show_animation {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+/* End animation */
+
+/* index.htm elements: */
+#loginForm {
+  font-size: 2em;
+}
+
+#loginForm input {
+  font-size: 1em;
+  width: 300px;
+}
+
+/* survey.htm elements: */
+#survey > table {
+  width: 75%;
+  margin: auto;
+  text-align: center;
+}
+
+#survey > * {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  font-size: 3em;
+}
+
+.answer-label {
+  font-size: 2em;
+}
+
+.survey-bts {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  font-size: 1em;
+}
+
+.question-text {
+  text-align: center;
+}
+
+#loginForm input[type=checkbox] {
+  height: 50px;
+  width: 50px;
+}
+
+#loginForm input[type=submit] {
+  height: 100px;
+}
+
+/* Hide radio button, using label for effect. */
+input[type=radio] {
+  display:none;
+  margin:10px;
+}
+
+/* Change the look of labels  adjacent to radio buttons. */
+input[type=radio] + label {
+  display:inline-block;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  color: #fff;
+  background-color: #00A651;
+  border: none;
+  box-shadow: 0 9px #999;
+  margin: 5px 40vw;
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  line-height: 100px;
+}
+
+/* Darken label for checked items. */
+input[type=radio]:checked + label {
+  background-image: none;
+  background-color:#007237;
+}
+
+#submit-survey {
+  width: 100%;
+  margin-top: 35%;
+  margin-bottom: 25px;
+}
+
+#redo-survey {
+  width: 100%;
+}
+
+#review-span {
+  margin-top: 1em;
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2;
+  -webkit-column-rule: 3px solid black; /* Chrome, Safari, Opera */
+  -moz-column-rule: 3px solid black; /* Firefox */
+  column-rule: 3px solid black;
+}
+
+#review-span > p {
+  margin: auto;
+}
+
+/* exit.html elements: */

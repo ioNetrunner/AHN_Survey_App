@@ -1,0 +1,162 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/jquery-3.2.1.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      $("#new-user-button").click(function() {
+        $("#login-form").hide();
+        $("#new-user-form").show();
+      });
+
+      $("#login-button").click(function() {
+        $("#new-user-form").hide();
+        $("#login-form").show();
+      });
+
+      // Submission for Logging In.
+      $("#login-form").submit(function() {
+
+        // alert("Logging on.")
+
+        var postData = $(this).serialize();
+
+        $.ajax({
+            type: "POST",
+            data: postData,
+            url: "https://www.ahn.org/login.php",
+            success: function(data){
+                console.log(data);
+                $(location).attr("href", "survey.html")
+            },
+            error: function(){
+                console.log(postData);
+                alert("There was an error logging you in.");
+            }
+        });
+
+        return false;
+      }); // End form submit for logging in.
+
+      // Submission for new user.
+      $("#new-user-form").submit(function(){
+
+        // alert("Signing up.")
+
+        var postData = $(this).serialize();
+
+        $.ajax({
+            type: "POST",
+            data: postData,
+            url: "https://www.ahn.org/new-user.php",
+            success: function(data){
+                console.log(data);
+                $(location).attr("href", "survey.html")
+            },
+            error: function(){
+                console.log(postData);
+                alert("There was an error creating your account.");
+            }
+        });
+
+        return false;
+      }); // End form submit for new user.
+
+    }); // End jQuery Document Ready.
+  </script>
+</head>
+
+<body>
+  <!-- Header starts here. -->
+  <div id="header">
+      <div class ="header-cont">
+        <img src="img/ahn-logo-2016.png" alt="Allegheny Health Network" title="Allegheny Health Network">
+        <div class="right">
+        </div>
+      </div>
+  </div>
+  <!-- Header ends here. -->
+  <!-- Main body starts here. -->
+  <div>
+    <div>
+      <h1>Welcome to AHN's COPD Test.</h1>
+    </div>
+    <div>
+
+    </div>
+    <div class="center" id="userButtons">
+      <button type="button" class="button" id="login-button">
+        Log<br>In
+      </button>
+      <button type="button" class="button" id="new-user-button">
+        Create<br>Account
+      </button>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <!-- Form for Logging In -->
+    <div class="center">
+      <form id="login-form" style="display: none" >
+        <table>
+          <tr>
+            <td><label for="username">Username:</label></td>
+            <td><input type="text" id="username" placeholder="Username" name="username" required></td>
+          </tr>
+          <tr>
+            <td><label for="passwd">Password:</label></td>
+            <td><input type="password" id="passwd" placeholder="Password" name="passwd" required></td>
+          </tr>
+          <tr>
+            <td><label for="remember">Remember Me:</label></td>
+            <td><input type="checkbox" id="remember" name="KeepSession"></td>
+          </tr>
+        </table>
+        <br>
+        <input type="submit" value="Submit" class="center button">
+      </form>
+    </div>
+
+    <!-- Form for New User -->
+    <div class="center">
+      <form id="new-user-form" style="display: none">
+        <table>
+          <tr>
+            <td><label for="username">Username:</label></td>
+            <td><input type="text" id="username" placeholder="Username" name="username" required></td>
+          </tr>
+          <tr>
+            <td><label for="passwd">Password:</label></td>
+            <td><input type="password" id="passwd" placeholder="Password" name="username" required></td>
+          </tr>
+          <tr>
+            <td><label for="confirmPasswd">Confirm Password:</label></td>
+            <td><input type="password" id="confirmPasswd" placeholder="Confirm Password" data-rule-equalTo="#passwd" required></td>
+          </tr>
+          <tr>
+            <td><label for="email">Email (Optional):</label></td>
+            <td><input type="email" id="email" placeholder="user@email.com" name="email"></td>
+          </tr>
+        </table>
+        <br>
+        <input type="submit" value="Submit" class="center button">
+      </form>
+    </div>
+  </div>
+  <!-- Main body ends here. -->
+  <!-- Footer starts here. -->
+  <footer class="footer">
+    Quick Links: <br>
+    <a href="index.html">Login</a>
+    <a href="survey.html">Survey</a>
+    <a href="exit.html">Exit</a>
+  </footer>
+  <!-- Footer ends here. -->
+</body>
+</html>

@@ -1,0 +1,29 @@
+<div id="container">
+  <!-- <button class="button" id="btn-decrease">A-</button> -->
+  <!-- <button class="button" id="btn-increase">A+</button> -->
+  <div id="survey">
+    <form data-ng-submit="submitSurvey()">
+      <table data-ng-repeat="question in survey" data-ng-init="questionIDs.push('question' + $index);" data-ng-show="currQuestion == {{$index}}" class="repeated-item">
+        <tr class="question-text">
+          <td>{{question.low_text}}</td>
+        </tr>
+        <tr data-ng-repeat="n in [].constructor(question.maximum - question.minimum + 1) track by $index">
+          <td>
+            <input type="radio" class="question-input" name="question{{$parent.$index}}" id="question{{$parent.$index}}_{{$index}}" value="{{$index}}" data-ng-click="answerQuestion()" data-ng-model="filledSurvey['question' + $parent.$index]">
+            <label class="answer-label" for="question{{$parent.$index}}_{{$index}}">{{$index + question.minimum}}</label>
+          </td>
+        </tr>
+        <tr class="question-text">
+          <td>{{question.high_text}}</td>
+        </tr>
+      </table>
+      <div>
+        <input type="submit" id="submit-survey" class="button survey-bts" data-ng-show="showSurveySubmit">
+        <input type="button" id="redo-survey" class="button survey-bts" value="Review or Edit" data-ng-show="showSurveySubmit" data-ng-click="redoSurvey()">
+        <div data-ng-show="showSurveySubmit" id="review-span">
+          <p data-ng-repeat="answer in questionIDs">Question {{$index + 1}}: {{filledSurvey['question' + $index]}} </p>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

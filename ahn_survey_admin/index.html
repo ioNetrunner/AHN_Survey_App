@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset="UTF8">
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-ng-app="AHNAdminApp" data-ng-cloak>
+  <header>
+    <img src="img/ahn-logo-2016.png" alt="Allegheny Health Network" title="Allegheny Health Network">
+    <img src="img/lock-icon.jpg" id="lock" alt="Log out." title="Log out." class="right" data-ng-show="loggedIn">
+    <span class="right" id="userName" data-ng-show="loggedIn">{{user.username}}</span>
+  </header>
+  <!-- Main body starts here. -->
+  <span data-ng-view>
+  </span>
+  <!-- Main body ends here. -->
+  <footer>
+    <span>Quick Links:<br></span>
+    <a href="#!/">Login</a>
+    <a href="#!admin">Admin</a>
+    <a href="#!finished">Exit</a> </footer>
+
+  <script src="js/angular.min.js"></script>
+  <script src="js/angular-route.min.js"></script>
+  <script src="js/angular-animate.min.js"></script>
+  <script src="js/ahnAdminApp.js"></script>
+</body>
+</html>

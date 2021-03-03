@@ -1,0 +1,184 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/jquery-3.2.1.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      // Array of question IDs.
+      var questionIDs = [];
+      var answers = [];
+      var currentQuestion = 0;
+      // Speed of question fade animation. Milliseconds.
+      var questionFade = 2000;
+
+      // Test Data:
+      var userToken = 999;
+      var testToken = "COPD";
+      // End test data.
+
+      $.getJSON("questions/COPD_en-US.json", function(data) {
+        var items = [];
+
+        // This is the block for each individual question.
+        $.each( data, function(key, val) {
+          items.push("<table id='question" + key + "' style='display: none;'><tr class='question-text'><td>" + data[key].low_text + "</td></tr>");
+          // Start at Q's minimum and add radio button for each step to maximum.
+          for (var i = data[key].minimum; i <= data[key].maximum; i++) {
+            // Name grouping for radio buttons is question + the question's number.
+            items.push(
+              "<tr><td><input type='radio' class='question-input' name='question" + key + "' id='question" + key + "_" + i + "' value='" + i + "'>" +
+              "<label for='question" + key + "_" + i + "'>" + i + "</label></input></td></tr>");
+          };
+          questionIDs.push("question" + key);
+          items.push("<tr class='question-text'><td>" + data[key].high_text + "</td></tr></table>");
+
+        }); // Ends the .each.
+
+        // Puts questions onto page.
+        $("<form>", {
+          "id": "survey",
+          html: items.join("")
+        }).appendTo("body");
+
+        $("<br>").appendTo("#survey")
+        $("<br>").appendTo("#survey")
+        $("<br>").appendTo("#survey")
+
+        $("<input>", {
+          "type": "hidden",
+          "name": "user",
+          "value": userToken,
+          "style": "display:none;"
+        }).appendTo("#survey");
+
+        $("<input>", {
+          "type": "hidden",
+          "name": "test",
+          "value": testToken,
+          "style": "display:none;"
+        }).appendTo("#survey");
+
+        $("<input>", {
+          "type": "submit",
+          "id": "submit-survey",
+          "class": "button",
+          // "disabled": "disabled",
+          "style": "display:none;"
+        }).appendTo("#survey");
+
+        // Finish by showing the first question.
+        $("#question0").show();
+      }); // End getJSON.
+
+      // Code for showing/hiding questions as filled out.
+      // Attaches click function to radio buttons. Clicking label clicks radio.
+      $(document).on("click",".question-input", function(e){
+        // Begins hiding current question.
+        $("#" + questionIDs[currentQuestion]).toggle();
+        answers[currentQuestion] = $(this).val();
+        console.log("Answered: " + answers[currentQuestion])
+        currentQuestion++;
+        // Begins showing the next question.
+        $("#" + questionIDs[currentQuestion]).toggle();
+        // If last question was answered, show submit button.
+        console.log("Current question shown: " + questionIDs[currentQuestion]);
+        if (currentQuestion == questionIDs.length) {
+          $("#submit-survey").show();
+        }
+      });
+
+      // Buttons for increasing and decreasing font size.
+      $("#btn-increase").click(function() {
+        $("label, .question-text").css("font-size", (parseInt($(".question-text").css("font-size")) + 2) + "px");
+      });
+
+      $("#btn-decrease").click(function() {
+        $("label, .question-text").css("font-size", (parseInt($(".question-text").css("font-size")) - 2) + "px");
+      });
+
+      $("#btn-back").click(function() {
+        if (currentQuestion != 0) {
+          // Begins hiding current question.
+          $("#" + questionIDs[currentQuestion]).toggle();
+          currentQuestion--;
+          // Begins showing last question.
+          $("#" + questionIDs[currentQuestion]).toggle();
+          // Hide submit button.
+          console.log("Current question shown: " + questionIDs[currentQuestion]);
+          $("#submit-survey").hide();
+        }
+      });
+
+      $(document).on("submit","#survey", function(e){
+
+        // alert("Submitting survey.");
+
+        var total = 0;
+        $.each(answers, function() {
+            total += parseInt(this);
+        });
+        document.cookie = "scoreTotal=" + total;
+        // var x = document.cookie;
+        // alert(x);
+
+        var postData = $(this).serialize();
+
+        $.ajax({
+            type: "POST",
+            data: postData,
+            url: "https://www.ahn.org/submit-survey.php",
+            success: function(data){
+                console.log(data);
+                $(location).attr("href", "exit.html")
+            },
+            error: function(){
+                console.log(postData);
+                alert("There was an error submitting your data.");
+            }
+        });
+
+        return false;
+      }); // End form submit for survey.
+
+    }); // End jQuery Document Ready.
+  </script>
+</head>
+
+<body>
+  <!-- Header starts here. -->
+  <div id="header">
+      <div class ="header-cont">
+        <img src="img/ahn-logo-2016.png" alt="Allegheny Health Network" title="Allegheny Health Network">
+        <div class="right">
+          {{Logged In User}}
+          <img id="lock" src="img/lock-icon.jpg">
+        </div>
+      </div>
+  </div>
+  <!-- Header ends here. -->
+  <!-- Main body starts here. -->
+  <button class="button" id="btn-back"><-- Last Question</button>
+
+  <div class="right">
+    <button class="button" id="btn-decrease">A-</button>
+    <button class="button" id="btn-increase">A+</button>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!-- Main body ends here. -->
+  <!-- Footer starts here. -->
+  <footer class="footer">
+    Quick Links: <br>
+    <a href="index.html">Login</a>
+    <a href="survey.html">Survey</a>
+    <a href="exit.html">Exit</a>
+  </footer>
+  <!-- Footer ends here. -->
+</body>
+</html>

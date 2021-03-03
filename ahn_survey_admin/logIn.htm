@@ -1,0 +1,39 @@
+<style type="text/css">
+  /* Used to align index.html form elements via table. */
+  td:nth-of-type(odd) {
+    text-align: right;
+  }
+
+  td:nth-of-type(even) {
+    text-align: left;
+  }
+  body {
+    /*overflow: hidden;*/
+  }
+</style>
+<div id="container" class="center">
+  <h1>Patient Assessment Survey</h1>
+  <h1>Admin Console</h1>
+
+  <div>
+    <form id="loginForm" name="loginForm" data-ng-submit="loginForm.$valid && submitLogIn()" novalidate>
+      <table>
+        <tr>
+          <td><label for="username">Login:</label></td>
+          <td>
+            <input type="text" id="username" placeholder="Username" name="username" ng-model="user.username" data-ng-minlength="3" required>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="passwd">Password:</label></td>
+          <td><input type="password" id="passwd" placeholder="Password" name="passwd" ng-model="user.password" data-ng-minlength="8" required></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="error" data-ng-show="badLogin">Username or Password is wrong.</td>
+        </tr>
+      </table>
+      <br>
+      <input type="submit" value="Submit" class="" ng-disabled="loginForm.$invalid">
+    </form>
+  </div>
+</div>

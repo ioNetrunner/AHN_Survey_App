@@ -1,0 +1,51 @@
+[
+  {
+    "low_text": "I never cough.",
+    "high_text": "I cough all the time.",
+    "minimum": 0,
+    "maximum": 5,
+    "interval": 1
+  }, {
+    "low_text": "I have no phlegm (mucus) in my chest at all.",
+    "high_text": "My chest is completely full of phlegm (mucus).",
+    "minimum": 0,
+    "maximum": 5,
+    "interval": 1
+  }, {
+    "low_text": "My chest does not feel tight at all.",
+    "high_text": "My chest feels very tight.",
+    "minimum": 0,
+    "maximum": 5,
+    "interval": 1
+  }, {
+    "low_text": "When I walk up a hill or one flight of stairs I am not breathless.",
+    "high_text": "When I walk up a hill or one flight of stairs I am very breathless.",
+    "minimum": 0,
+    "maximum": 5,
+    "interval": 1
+  }, {
+    "low_text": "I am not limited doing any activities at home.",
+    "high_text": "I am very limited doing activities at home.",
+    "minimum": 0,
+    "maximum": 5,
+    "interval": 1
+  }, {
+    "low_text": "I am confident leaving my home despite my lung condition.",
+    "high_text": "I am not at all confident leaving my home because of my lung condition.",
+    "minimum": 0,
+    "maximum": 5,
+    "interval": 1
+  }, {
+    "low_text": "I sleep soundly.",
+    "high_text": "I don't sleep soundly because of my lung condition.",
+    "minimum": 0,
+    "maximum": 5,
+    "interval": 1
+  }, {
+    "low_text": "I have lots of energy.",
+    "high_text": "I have no energy at all.",
+    "minimum": 0,
+    "maximum": 5,
+    "interval": 1
+  }
+]

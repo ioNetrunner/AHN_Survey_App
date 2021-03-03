@@ -1,0 +1,8 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Copyright 2017 - Allegheny Health Network
+${licensePrefix}@author Roy Gustafson <roy.gustafson@ahn.org> <royagustafson@gmail.com>
+<#if licenseLast??>
+${licenseLast}
+</#if>

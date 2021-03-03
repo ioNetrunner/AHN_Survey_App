@@ -1,0 +1,131 @@
+/*AHN Green: #00A651*/
+/*AHN Blue:  #00AEEF*/
+
+body {
+  margin: 110px auto;
+  background: #FFF;
+  /*background: linear-gradient(#00A651, #00AEEF);*/
+}
+
+h1 {
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  color: #fff;
+  background-color: #00A651;
+  border: none;
+  box-shadow: 0 9px #999;
+  margin: 5px;
+  width: 125px;
+  height: 125px;
+  border-radius: 8px;
+}
+
+.button:active {
+  background-color: #00AEEF;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#header {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  background: #FFF;
+  height: 110px;
+}
+
+.header-cont {
+  width: auto;
+  background: #FFF;
+  margin: 10px;
+}
+
+.right {
+  float: right;
+  /*position: fixed;*/
+  right: 20px;
+  top: 35px;
+}
+
+.center {
+  margin: auto;
+  width: 33%;
+}
+
+#lock {
+  width: 20px;
+}
+
+#userButtons {
+  width: 280px; /*Two buttons plus padding.*/
+  margin: auto;
+}
+
+#new-user-button {
+  margin: auto;
+  width: 50%;
+}
+
+#log-in-button {
+  margin: auto;
+  width: 50%;
+}
+
+input[type=submit] {
+  display: block;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  color: #fff;
+  background-color: #00A651;
+  border: none;
+  box-shadow: 0 9px #999;
+  margin: auto;
+  width: 125px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+#survey > * {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  font-size: 30pt;
+}
+
+.question-text {
+  height: 3em;
+}
+
+.footer {
+  align-self: center;
+  padding: 10px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+  background-color: white;
+}
+
+td:odd {
+  text-align: right;
+}
+
+td:even {
+  text-align: left;
+}
+
+#user-score {
+  text-align: center;
+  font-size: 30pt;
+}

@@ -1,0 +1,72 @@
+<style type="text/css">
+  /* Used to align index.html form elements via table. */
+  td:nth-of-type(odd) {
+    text-align: right;
+  }
+
+  td:nth-of-type(even) {
+    text-align: left;
+  }
+</style>
+<div id="container">
+  <h1>Welcome to AHN's Test App.</h1>
+  <div class="center" id="userButtons">
+    <button type="button" class="button" id="login-button" data-ng-click="viewDataForm()">
+      View<br>Data
+    </button>
+    <button type="button" class="button" id="new-user-button" data-ng-click="newUserForm()">
+      Create<br>User
+    </button>
+  </div>
+
+  <div class="center" data-ng-if="logInShow">
+    <form id="loginForm" name="loginForm" data-ng-submit="loginForm.$valid && submitLogIn()" novalidate>
+      <table>
+        <tr>
+          <td><label for="username">Username:</label></td>
+          <td><input type="text" id="username" placeholder="Username" name="username" ng-model="user.username" data-ng-minlength="3" required></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="error" data-ng-show="badLogin">Username or Password is wrong.</td>
+        </tr>
+      </table>
+      <br>
+      <input type="submit" value="Submit" class="center">
+    </form>
+  </div>
+
+  <!-- Form for New User -->
+  <div class="center" data-ng-if="newUserShow">
+    <form id="newUserForm" name="newUserForm" data-ng-submit="newUserForm.$valid && submitNewUser()">
+      <table>
+        <tr id="usernameRow">
+          <td><label for="username">Username:</label></td>
+          <td>{{newUser.username}}</td>
+        </tr>
+        <tr>
+          <td><label for="password">Password:</label></td>
+          <td>{{newUser.password}}</td>
+        </tr>
+        <!-- Begin Language Picker -->
+        <tr>
+          <td><label for="lang">* Language:</label></td>
+          <td><select name="lang" id="lang" ng-model="newUser.lang" ng-options="lang.value as lang.name for lang in languages" required>
+          </select></td>
+        </tr>
+        <!-- End Language Picker -->
+        <tr>
+          <td><label for="test">* Test:</label></td>
+          <td><select id="test" name="test" ng-model="newUser.testToken" ng-options="test.value as test.name for test in tests" required>
+          </select></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            Username and Password are generated on server.<br>They will be visible on creation.
+          </td>
+        </tr>
+      </table>
+      <br>
+      <input type="submit" value="Create" class="center">
+    </form>
+  </div>
+</div>

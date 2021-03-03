@@ -1,0 +1,31 @@
+# AHN_Survey_App
+
+This application gives responsive, easy to use patient facing surveys. Originally intended for the COPD Assessment Test (CAT), this platform supports all types of surveys, such as those for diagnostic or patient satisfaction.
+
+## Built With
+
+* [Phone Gap](https://phonegap.com/) - Porting UI to phone and web apps
+* [XAMPP](https://www.apachefriends.org/index.html) - Backend functionality
+
+## Contributing
+
+### Style Guide
+
+* DHTML: Use 2 spaces
+* JavaScript: Append "ahn." to .js file names for non-libraries.
+* All others: Use tabs of width 4
+* All classes must include description and outline at start of source
+* All functions must include description, parameters, and returns
+* CSS class and id names: kebab-case
+* Javascript variables: camelCase
+
+### Branches
+
+* **developing** - Experimental
+* **testing** - Polished but not tested
+* **master** - Shippable code
+
+## Authors
+
+* **Io Netrunner** - *Front-end development, user experience*
+* **Roy Gustafson** - *Back-end development, database management* - [roy.gustafson@AHN.org](mailto:roy.gustafson@AHN.org)

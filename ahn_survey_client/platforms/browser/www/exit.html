@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/jquery-3.2.1.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      var scoreTotal = getCookie("scoreTotal");
+
+      $("#user-score.first").replaceWith("<h1>" + scoreTotal + "</h1>");
+      // alert(scoreTotal);
+
+    }); // End jQuery Document Ready.
+  </script>
+</head>
+
+<body>
+  <!-- Header starts here. -->
+  <div id="header">
+      <div class ="header-cont">
+        <img src="img/ahn-logo-2016.png" alt="Allegheny Health Network" title="Allegheny Health Network">
+        <div class="right">
+          {{Logged In User}}
+          <img id="lock" src="img/lock-icon.jpg">
+        </div>
+      </div>
+  </div>
+  <!-- Header ends here. -->
+  <!-- Main body starts here. -->
+  <div>
+    <div id="user-score">
+      Your score is:
+      <div>{{User Score}}</div>
+    </div>
+    <h1>Helpful Info:</h1>
+    <ul>
+      <li>
+        Allegheny Health Network is happy to offer primary care and specialty same-day appointments. If you call 412.DOCTORS (412.362.8677) before 11 a.m. Monday - Friday, we’ll offer you a same-day appointment with a specialty doctor, primary care physician, nurse practitioner, or physician assistant that day. If you call after 11 a.m. or over the weekend, we’ll work to find the next available appointment that is convenient for you.
+      </li>
+    </ul>
+  </div>
+  <!-- Main body ends here. -->
+  <!-- Footer starts here. -->
+  <footer class="footer">
+    Quick Links: <br>
+    <a href="index.html">Login</a>
+    <a href="survey.html">Survey</a>
+    <a href="exit.html">Exit</a>
+  </footer>
+  <!-- Footer ends here. -->
+</body>
+</html>
